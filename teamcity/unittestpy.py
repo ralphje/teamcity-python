@@ -148,7 +148,7 @@ class TeamcityTestResult(unittest.TestResult):
 
 
 class TeamcityTestRunner(object):
-    def __init__(self, stream=sys.stderr):
+    def __init__(self, stream=sys.stderr, *args, **kwargs):
         self.stream = stream
 
     def _makeResult(self):
@@ -158,3 +158,9 @@ class TeamcityTestRunner(object):
         result = self._makeResult()
         test(result)
         return result
+
+
+if __name__ == '__main__':
+    from unittest import main
+
+    main(module=None, testRunner=TeamcityTestRunner())
