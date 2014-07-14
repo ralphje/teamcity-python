@@ -145,6 +145,7 @@ class TeamcityTestResult(unittest.TestResult):
                 "INTERNAL ERROR: stopTest(%s) after startTest(%s)" % (self.getTestName(test), self.test_name))
         self.messages.testFinished(self.test_name, time_diff)
         self.test_name = None
+        self.output.flush()
 
 
 class TeamcityTestRunner(object):
